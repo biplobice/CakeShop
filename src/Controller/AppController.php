@@ -43,6 +43,23 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+		$this->loadComponent('Auth', [
+			// 'authorize' 	 => ['Controller'], // Added this line
+            'authenticate'   =>[
+                'Form' => [
+                'fields' => ['username' => 'email','password'=>'password']
+               ]
+            ],			
+			'loginRedirect'  => [
+				'controller' => 'Users',
+				'action'	 => 'index'
+			],
+			'logoutRedirect' => [
+				'controller' => 'Users',
+				'action'	 => 'login',
+				'home'
+			]
+		]);
     }
 
     /**
@@ -59,4 +76,30 @@ class AppController extends Controller
             $this->set('_serialize', true);
         }
     }
+	
+	public function beforeFilter(Event $event)
+	{
+		if (isset($this->request->params['prefix']) == 'admin') {
+			if ($this->Auth->user()) {
+        		$this->viewBuilder()->layout('admin');
+			}
+			$this->Auth->allow(['login']);
+		} else {
+        	$this->viewBuilder()->layout('frontend');
+			$this->Auth->allow();
+		}
+	}
+	
+/*
+	public function isAuthorized($user)
+	{
+		// Admin can access all actions
+		if (isset($user['role']) === 'admin') {
+			return true;
+		}
+		
+		// Default deny
+		return false;
+	}*/
+
 }

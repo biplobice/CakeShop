@@ -1,14 +1,7 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Category'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Products'), ['controller' => 'Products', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Product'), ['controller' => 'Products', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
 <div class="categories index large-9 medium-8 columns content">
-    <h3><?= __('Categories') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+	<?= $this->Html->link(__('Add New'), ['action' => 'add'], ['class' => 'btn btn-success pull-right']) ?>	
+    <h3 class="page-header"><?= __('Categories') ?></h3>
+    <table class="table table-responsive table-condensed table-striped">
         <thead>
             <tr>
                 <th><?= $this->Paginator->sort('id') ?></th>

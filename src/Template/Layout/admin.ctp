@@ -1,57 +1,68 @@
-<?php
-/**
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @since         0.10.0
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
-
-$cakeDescription = 'CakePHP: the rapid development php framework';
-?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <?= $this->Html->charset() ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <?= $cakeDescription ?>:
-        <?= $this->fetch('title') ?>
-    </title>
-    <?= $this->Html->meta('icon') ?>
-
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('cake.css') ?>
-
-    <?= $this->fetch('meta') ?>
-    <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
+    <?php echo $this->Html->charset(); ?>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>eCommerce Admin Panel</title>
+    
+    <!--<script type="text/javascript">
+        var BASEURL = '<?php //echo BASEURL; ?>'
+        var IMAGEPATH = '<?php //echo BASEURL; ?>img/'
+    </script>-->
+    <?php
+    echo $this->Html->meta('icon');
+    echo $this->Html->css( array(
+        'bootstrap',
+        'admin'
+    ));
+    echo $this->Html->script( array(
+        'jquery.min',
+        'bootstrap.min',
+        'admin.scripts'
+    ));
+    echo $this->fetch('meta');
+    echo $this->fetch('css');
+    echo $this->fetch('script');
+    ?>
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->    
 </head>
+
 <body>
-    <nav class="top-bar expanded" data-topbar role="navigation">
-        <ul class="title-area large-3 medium-4 columns">
-            <li class="name">
-                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
-            </li>
-        </ul>
-        <section class="top-bar-section">
-            <ul class="right">
-                <li><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></li>
-                <li><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></li>
-            </ul>
-        </section>
-    </nav>
-    <?= $this->Flash->render() ?>
-    <section class="container clearfix">
-        <?= $this->fetch('content') ?>
-    </section>
+	<?= $this->element('Admin/navbar') ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="well">
+                	<?= $this->element('Admin/leftbar') ?>
+                </div>
+            </div><!-- /.col-sm-3-->
+            <div class="col-sm-9">
+                <div class="well">
+                    <?php //echo $this->Session->flash(); ?>
+                    <?php echo $this->fetch('content'); ?>                    
+                </div>
+            </div><!-- /.col-sm-9-->
+        </div><!-- /.row -->
+    </div><!-- /.container-->
+    
     <footer>
+        <div class="container">
+            <div class="row">
+                <div class="text-center">
+                        &copy; <?php echo date( 'Y' ); ?> SmartMux, Dhaka, Bangladesh.                 
+                </div>
+            </div>
+        </div>
     </footer>
+    <?php //echo $this->element( 'sql_dump' ); ?>    
+    
 </body>
 </html>

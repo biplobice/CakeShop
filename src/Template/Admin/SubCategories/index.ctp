@@ -23,9 +23,9 @@
                 <td><?= h($subCategory->modified) ?></td>
                 <td><?= h($subCategory->status) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $subCategory->id], ['class' => 'btn btn-primary']) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $subCategory->id], ['class' => 'btn btn-primary']) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $subCategory->id], ['confirm' => __('Are you sure you want to delete # {0}?', $subCategory->id),'class' => 'btn btn-danger']) ?>
+                    <?= $this->Html->link(__('View'), ['action' => 'view', $subCategory->id], ['class' => 'btn btn-xs btn-primary']) ?>
+                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $subCategory->id], ['class' => 'btn btn-xs btn-primary']) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $subCategory->id], ['confirm' => __('Are you sure you want to delete # {0}?', $subCategory->id),'class' => 'btn btn-xs btn-danger']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

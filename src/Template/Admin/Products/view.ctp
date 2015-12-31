@@ -1,3 +1,16 @@
+<nav class="large-3 medium-4 columns" id="actions-sidebar">
+    <ul class="side-nav">
+        <li class="heading"><?= __('Actions') ?></li>
+        <li><?= $this->Html->link(__('Edit Product'), ['action' => 'edit', $product->id]) ?> </li>
+        <li><?= $this->Form->postLink(__('Delete Product'), ['action' => 'delete', $product->id], ['confirm' => __('Are you sure you want to delete # {0}?', $product->id)]) ?> </li>
+        <li><?= $this->Html->link(__('List Products'), ['action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Product'), ['action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Categories'), ['controller' => 'Categories', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Category'), ['controller' => 'Categories', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Sub Categories'), ['controller' => 'SubCategories', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Sub Category'), ['controller' => 'SubCategories', 'action' => 'add']) ?> </li>
+    </ul>
+</nav>
 <div class="products view large-9 medium-8 columns content">
     <h3><?= h($product->name) ?></h3>
     <table class="vertical-table">
@@ -58,8 +71,8 @@
             <td><?= h($product->created) ?></td>
         </tr>
         <tr>
-            <th><?= __('Updated') ?></th>
-            <td><?= h($product->updated) ?></td>
+            <th><?= __('Modified') ?></th>
+            <td><?= h($product->modified) ?></td>
         </tr>
     </table>
     <div class="row">

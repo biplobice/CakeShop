@@ -11,7 +11,7 @@ use Cake\ORM\Entity;
  * @property string $email
  * @property string $password
  * @property \Cake\I18n\Time $created
- * @property \Cake\I18n\Time $updated
+ * @property \Cake\I18n\Time $modified
  */
 class User extends Entity
 {

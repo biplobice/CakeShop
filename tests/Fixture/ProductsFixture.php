@@ -32,7 +32,7 @@ class ProductsFixture extends TestFixture
         'rating' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'thumb' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'created' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
-        'updated' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
+        'modified' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -64,8 +64,8 @@ class ProductsFixture extends TestFixture
             'weight' => 'Lorem ipsum dolor sit amet',
             'rating' => 1,
             'thumb' => 1,
-            'created' => '2015-12-30 17:50:55',
-            'updated' => '2015-12-30 17:50:55'
+            'created' => '2015-12-31 07:26:12',
+            'modified' => '2015-12-31 07:26:12'
         ],
     ];
 }

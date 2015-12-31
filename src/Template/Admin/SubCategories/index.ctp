@@ -1,14 +1,23 @@
+<nav class="large-3 medium-4 columns" id="actions-sidebar">
+    <ul class="side-nav">
+        <li class="heading"><?= __('Actions') ?></li>
+        <li><?= $this->Html->link(__('New Sub Category'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Categories'), ['controller' => 'Categories', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Category'), ['controller' => 'Categories', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Products'), ['controller' => 'Products', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Product'), ['controller' => 'Products', 'action' => 'add']) ?></li>
+    </ul>
+</nav>
 <div class="subCategories index large-9 medium-8 columns content">
- 	<?= $this->Html->link(__('Add New'), ['action' => 'add'], ['class' => 'btn btn-success pull-right']) ?>	
-   <h3 class="page-header"><?= __('Sub Categories') ?></h3>
-    <table class="table table-responsive table-condensed table-striped">
+    <h3><?= __('Sub Categories') ?></h3>
+    <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
                 <th><?= $this->Paginator->sort('id') ?></th>
                 <th><?= $this->Paginator->sort('category_id') ?></th>
                 <th><?= $this->Paginator->sort('name') ?></th>
                 <th><?= $this->Paginator->sort('created') ?></th>
-                <th><?= $this->Paginator->sort('updated') ?></th>
+                <th><?= $this->Paginator->sort('modified') ?></th>
                 <th><?= $this->Paginator->sort('status') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -20,7 +29,7 @@
                 <td><?= $subCategory->has('category') ? $this->Html->link($subCategory->category->name, ['controller' => 'Categories', 'action' => 'view', $subCategory->category->id]) : '' ?></td>
                 <td><?= h($subCategory->name) ?></td>
                 <td><?= h($subCategory->created) ?></td>
-                <td><?= h($subCategory->updated) ?></td>
+                <td><?= h($subCategory->modified) ?></td>
                 <td><?= h($subCategory->status) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $subCategory->id]) ?>

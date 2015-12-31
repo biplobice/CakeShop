@@ -77,7 +77,7 @@ Router::scope('/', function ($routes) {
 Router::prefix('admin', function ($routes) {
     // All routes here will be prefixed with `/admin`
     // And have the prefix => admin route element added.
-    $routes->connect('/', ['controller' => 'Users', 'action' => 'index']);
+    $routes->connect('/', ['controller' => 'Products', 'action' => 'index']);
     $routes->fallbacks('InflectedRoute');
 });
 

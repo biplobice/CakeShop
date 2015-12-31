@@ -23,7 +23,7 @@ use Cake\ORM\Entity;
  * @property int $rating
  * @property int $thumb
  * @property \Cake\I18n\Time $created
- * @property \Cake\I18n\Time $updated
+ * @property \Cake\I18n\Time $modified
  */
 class Product extends Entity
 {

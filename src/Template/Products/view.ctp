@@ -71,8 +71,8 @@
             <td><?= h($product->created) ?></td>
         </tr>
         <tr>
-            <th><?= __('Updated') ?></th>
-            <td><?= h($product->updated) ?></td>
+            <th><?= __('Modified') ?></th>
+            <td><?= h($product->modified) ?></td>
         </tr>
     </table>
     <div class="row">

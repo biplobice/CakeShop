@@ -1,7 +1,7 @@
 <div class="categories index large-9 medium-8 columns content">
     <?= $this->Html->link(__('Add New'), ['action' => 'add'], ['class' => 'btn btn-success pull-right']) ?>
     <h3><?= __('Categories') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <table class="table table-responsive table-condensed table-striped">
         <thead>
             <tr>
                 <th><?= $this->Paginator->sort('id') ?></th>

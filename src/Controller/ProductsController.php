@@ -45,6 +45,14 @@ class ProductsController extends AppController
         ]);
         $this->set('product', $product);
         $this->set('_serialize', ['product']);
+		
+		// Related products
+        $this->paginate = [
+            'contain' => ['Categories', 'SubCategories'],
+            'limit' => 5
+        ];
+        $this->set('products', $this->paginate($this->Products));
+        $this->set('_serialize', ['products']);		
     }
 
     /**

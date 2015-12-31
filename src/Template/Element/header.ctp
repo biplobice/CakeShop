@@ -9,7 +9,8 @@
 				  <span class="icon-bar"></span>
 				</button>
 					<a href="index.html" class="navbar-brand">
-					<img src="img/logo.png" alt="Sapphire">Sapphire
+					<?= $this->Html->image('logo.png', ['alt' => 'Sapphire']) ?>Sapphire
+					<!-- <img src="img/logo.png" alt="Sapphire">Sapphire -->
 				</a>
 			  </div>
   
@@ -65,18 +66,18 @@
 							</thead>
 							<tbody>
 								<tr>
-									<td class="image"><img alt="IMAGE" class="img-responsive" src="products/dress33.jpg"></td>
+									<td class="image"><?= $this->Html->image('../products/dress33.jpg', ['alt' => 'Image', 'class' => 'img-responsive']) ?></td>
 									<td class="name"><a href="project.html">Black Dress</a></td>
 									<td class="quantity">x&nbsp;3</td>
 									<td class="total">$130.00</td>
-									<td class="remove"><img src="image/remove-small.png" alt="Remove" title="Remove"></td>											
+									<td class="remove"><?= $this->Html->image('../image/remove-small.png', ['alt' => 'Remove', 'title' => 'Remove']) ?></td>											
 								</tr>
 								<tr>
-									<td class="image"><img alt="IMAGE" class="img-responsive" src="products/dress11.jpg"></td>
+									<td class="image"><?= $this->Html->image('../products/dress11.jpg', ['alt' => 'Image', 'class' => 'img-responsive']) ?></td>
 									<td class="name"><a href="project.html">Blue Dress</a></td>
 									<td class="quantity">x&nbsp;3</td>
 									<td class="total">$230.00</td>
-									<td class="remove"><img src="image/remove-small.png" alt="Remove" title="Remove"></td>											
+									<td class="remove"><?= $this->Html->image('../image/remove-small.png', ['alt' => 'Remove', 'title' => 'Remove']) ?></td>											
 								</tr>
 							</tbody>									
 						</table>

@@ -18,6 +18,12 @@ class ProductsController extends AppController
      */
     public function index()
     {
+    	$this->loadModel('Categories');	
+    	$query = $this->Categories->find('all', [
+    		'contain' => ['SubCategories']
+    	]);
+		$this->set('categories', $query);
+		    	
         $this->paginate = [
             'contain' => ['Categories', 'SubCategories']
         ];

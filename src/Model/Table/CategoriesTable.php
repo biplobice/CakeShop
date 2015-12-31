@@ -31,6 +31,10 @@ class CategoriesTable extends Table
 
         $this->addBehavior('Timestamp');
 
+        $this->hasMany('SubCategories', [
+            'foreignKey' => 'category_id'
+        ]);
+		
         $this->hasMany('Products', [
             'foreignKey' => 'category_id'
         ]);

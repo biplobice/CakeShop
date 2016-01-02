@@ -66,12 +66,13 @@ class AppController extends Controller
                ]
             ],			
 			'loginRedirect'  => [
-				'controller' => 'Users',
-				'action'	 => 'index'
+				'controller' => 'Products',
+				'action'	 => 'index',
+				'home'
 			],
 			'logoutRedirect' => [
-				'controller' => 'Users',
-				'action'	 => 'login',
+				'controller' => 'Products',
+				'action'	 => 'index',
 				'home'
 			]
 		]);
@@ -95,17 +96,20 @@ class AppController extends Controller
 	public function beforeFilter(Event $event)
 	{
 		if (isset($this->request->params['prefix']) == 'admin') {
-			if ($this->Auth->user()) {
+			if ($authUser = $this->Auth->user()) {
         		$this->viewBuilder()->layout('admin');
 			}
 			$this->Auth->allow(['login']);
 		} else {
+			$authUser = $this->Auth->user();
         	$this->viewBuilder()->layout('frontend');
 			$this->Auth->allow();
 		}
+
+	    $this->set(compact('authUser'));
 	}
 	
-/*
+
 	public function isAuthorized($user)
 	{
 		// Admin can access all actions
@@ -115,6 +119,6 @@ class AppController extends Controller
 		
 		// Default deny
 		return false;
-	}*/
+	}
 
 }

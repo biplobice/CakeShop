@@ -2,7 +2,7 @@
 
 		<?= $this->element('slider') ?>
 		
-		<?php //pr($categories); ?>		
+		<?php //pr($authUser); ?>		
 		<?php //pr($products); ?>		
 				
 		<div class="row">

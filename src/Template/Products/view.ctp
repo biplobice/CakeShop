@@ -1,4 +1,5 @@
-
+<?php use Cake\Routing\Router; ?>
+<?php //pr($product); ?>
     <div class="container">
 		    <ul class="breadcrumb prod">
 			    <li><a href="index.html">Home</a> <span class="divider"></span></li>
@@ -65,9 +66,13 @@
 
 					<div class="line"></div>
 
-					<form class="form-inline">
-						<button class="btn btn-primary" type="button">Add to Cart</button>
-						<label>Qty:</label> <input type="text" placeholder="1" class="col-md-1">
+					<form class="form-inline" id="cartForm">
+						<input type="submit" value="Add to Cart" class="btn btn-primary" />
+						<!-- <button class="btn btn-primary" type="button">Add to Cart</button> -->
+						<input type="hidden" name="user_id" value="<?= $this->request->Session()->read('Auth.User.id') ?>" />
+						<input type="hidden" name="product_id" value="<?= $product['id'] ?>" />
+						<input type="hidden" name="price" value="<?= $product['sell_price'] ?>" />
+						<label>Qty:</label> <input type="text" name="quantity" value="1" placeholder="1" class="col-md-1">
 					</form>
 					
 					<div class="tabs">
@@ -209,5 +214,21 @@ jQuery(document).ready(function()
 		e.preventDefault();
 		$(this).tab('show');
     })
+});
+</script>
+
+<script>
+
+$('#cartForm').submit(function(e){
+	e.preventDefault(); // Stop default action
+	$.ajax({
+		type	: "POST",
+		data	: $(this).serialize(),
+		url		: "<?php echo Router::url(['controller' => 'Carts', 'action' => 'add']); ?>",
+		success	: function(data) {
+			//
+		}
+	});
+	return false; //stop the actual form post !important!
 });
 </script>

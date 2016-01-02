@@ -10,7 +10,6 @@ use App\Controller\AppController;
  */
 class ProductsController extends AppController
 {
-
     /**
      * Index method
      *
@@ -52,8 +51,13 @@ class ProductsController extends AppController
             'limit' => 5
         ];
         $this->set('products', $this->paginate($this->Products));
-        $this->set('_serialize', ['products']);		
+        $this->set('_serialize', ['products']);
     }
+	
+	public function search()
+	{
+		//
+	}
 
     /**
      * Add method

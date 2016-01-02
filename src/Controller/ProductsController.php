@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * Products Controller
@@ -10,6 +11,12 @@ use App\Controller\AppController;
  */
 class ProductsController extends AppController
 {
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $this->Auth->allow(['index', 'view', 'about', 'contact']);
+    }
+
     /**
      * Index method
      *
@@ -55,6 +62,16 @@ class ProductsController extends AppController
     }
 	
 	public function search()
+	{
+		//
+	}
+
+	public function about()
+	{
+		//
+	}
+
+	public function contact()
 	{
 		//
 	}

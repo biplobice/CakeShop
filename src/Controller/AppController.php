@@ -58,6 +58,29 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+	    $this->loadComponent('Auth', [
+	        //'authorize'=> 'Controller',//added this line
+	        'authenticate' => [
+	            'Form' => [
+	                'fields' => [
+	                    'username' => 'email',
+	                    'password' => 'password'
+	                ]
+	            ]
+	        ],
+	        'loginAction' => [
+	            'controller' => 'Users',
+	            'action' => 'login'
+	        ],
+			'logoutRedirect' => [
+				'controller' => 'Products',
+				'action'	 => 'index',
+			]	        
+	        //'unauthorizedRedirect' => $this->referer()
+	    ]);
+
+		
+/*
 		$this->loadComponent('Auth', [
 			// 'authorize' 	 => ['Controller'], // Added this line
             'authenticate'   =>[
@@ -75,7 +98,8 @@ class AppController extends Controller
 				'action'	 => 'index',
 				'home'
 			]
-		]);
+		]);*/
+
     }
 
     /**
@@ -99,26 +123,13 @@ class AppController extends Controller
 			if ($authUser = $this->Auth->user()) {
         		$this->viewBuilder()->layout('admin');
 			}
-			$this->Auth->allow(['login']);
 		} else {
 			$authUser = $this->Auth->user();
         	$this->viewBuilder()->layout('frontend');
-			$this->Auth->allow();
 		}
 
+		$this->Auth->allow(['login', 'about', 'contact']);
 	    $this->set(compact('authUser'));
-	}
-	
-
-	public function isAuthorized($user)
-	{
-		// Admin can access all actions
-		if (isset($user['role']) === 'admin') {
-			return true;
-		}
-		
-		// Default deny
-		return false;
 	}
 
 }

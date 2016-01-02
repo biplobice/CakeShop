@@ -40,6 +40,11 @@ class OrdersController extends AppController
         $this->set('order', $order);
         $this->set('_serialize', ['order']);
     }
+	
+	public function checkout()
+	{
+		//
+	}
 
     /**
      * Add method

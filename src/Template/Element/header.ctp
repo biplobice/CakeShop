@@ -8,27 +8,32 @@
 				  <span class="icon-bar"></span>
 				  <span class="icon-bar"></span>
 				</button>
-					<?= $this->Html->link($this->Html->image('logo.png', ['alt' => 'Sapphire']) . ' eCommerce', ['controller' => 'Products', 'action' => 'index', 'home'], ['class' => 'navbar-brand', 'escapeTitle' => false]) ?>
+					<?= $this->Html->link($this->Html->image('logo.png', ['alt' => 'Sapphire']) . ' eCommerce', ['controller' => 'Products', 'action' => 'index'], ['class' => 'navbar-brand', 'escapeTitle' => false]) ?>
 				</a>
 			  </div>
   
                  
                  <div class="navbar-collapse collapse navbar-right">
 					<ul class="nav navbar-nav">
-					  <li><?= $this->Html->link('Home', ['/']) ?></li>
-					  <li><?= $this->Html->link('About Us', ['controller' => 'Pages', 'action' => 'about']) ?></li>
-					  <li><?= $this->Html->link('Contact Us', ['controller' => 'Pages', 'action' => 'contact']) ?></li>
-                      <!-- <li class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">Pages <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                          <li class="dropdown-header">sliders</li>
-                          <li><a href="index.html" class="ajax_right">Camera</a></li>
-						  <li class="divider"></li>
-                        </ul>
-                      </li> -->
+					  <li><?= $this->Html->link('Home', ['controller' => 'Products', 'action' => 'index']) ?></li>
+					  <li><?= $this->Html->link('About Us', ['controller' => 'Products', 'action' => 'about']) ?></li>
+					  <li><?= $this->Html->link('Contact Us', ['controller' => 'Products', 'action' => 'contact']) ?></li>
                     </ul>
 
 			        <?php if(isset($authUser['id']) && !empty($authUser['id'])): ?>  
+  
+            <ul class="nav navbar-nav">
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span
+                    class="glyphicon glyphicon-user"></span> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><?php echo $this->Html->link(__('<i class="glyphicon glyphicon-user"></i> Profile'), array('controller' => 'users', 'action' => 'profile', $authUser['id']), array('escapeTitle' => false)); ?></li>                        
+                        <li><?php echo $this->Html->link(__('<i class="glyphicon glyphicon-cog"></i> Change Password'), array('controller' => 'users', 'action' => 'change_password', $authUser['id']), array('escapeTitle' => false)); ?></li>                        
+                        <li class="divider"></li>
+                        <li><?php echo $this->Html->link(__('<i class="glyphicon glyphicon-off"></i> Logout'), array('controller' => 'users', 'action' => 'logout'), array('escapeTitle' => false)) ?></li>  
+                    </ul>
+                </li>
+            </ul>
+             		        	
                     <ul class="nav navbar-right cart">
                       <li class="dropdown">
                       	<?php $carts = $this->Common->getCartInfoByUserId($authUser['id']); ?>
@@ -74,17 +79,12 @@
 					<?php endif; ?> 
 			      </li>
 			     </ul>
-					 
-                    <form action="#" class="navbar-form navbar-search navbar-right" role="search">
-		      		  <div class="input-group"> 
-                        <input type="text" name="search" placeholder="Search" class="search-query col-md-2"><button type="submit" class="btn btn-default icon-search"></button> 
-                      </div>
-                    </form>
+
                  <?php else: ?>
-               <ul class="nav navbar-nav navbar-right">
-                  <li><a href="http://www.jquery2dotnet.com">Sign Up</a></li>
+               <ul class="nav navbar-nav">
+                  <li><a href="#">Sign Up</a></li>
                   <li class="dropdown">
-                     <a href="http://www.jquery2dotnet.com" class="dropdown-toggle" data-toggle="dropdown">Sign in <b class="caret"></b></a>
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign in <b class="caret"></b></a>
                      <ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
                         <li>
                            <div class="row">
@@ -110,6 +110,12 @@
                   </li>
                </ul>
                  <?php endif; ?>
+
+                    <form action="#" class="navbar-form navbar-search navbar-right" role="search">
+		      		  <div class="input-group"> 
+                        <input type="text" name="search" placeholder="Search" class="search-query col-md-2"><button type="submit" class="btn btn-default icon-search"></button> 
+                      </div>
+                    </form>
 					 
                   </div><!-- /.navbar-collapse -->
 			</nav>		

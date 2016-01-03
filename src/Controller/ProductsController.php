@@ -81,15 +81,7 @@ class ProductsController extends AppController
 		//
 	}
 
-	public function about()
-	{
-		//
-	}
 
-	public function contact()
-	{
-		//
-	}
 
     /**
      * Add method

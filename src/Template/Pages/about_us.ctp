@@ -16,13 +16,13 @@
 		
 		<div class="row registerbox">
 		    <div class="col-md-4">
-			    <img src="image/banner1.jpg" alt="banner" class="img-polaroid">
+			    <img src="../image/banner1.jpg" alt="banner" class="img-polaroid">
 			</div>
 		    <div class="col-md-4">
-			    <img src="image/banner2.jpg" alt="banner1" class="img-polaroid">
+			    <img src="../image/banner2.jpg" alt="banner1" class="img-polaroid">
 			</div>
 		    <div class="col-md-4">
-			    <img src="image/banner3.jpg" alt="banner2" class="img-polaroid">
+			    <img src="../image/banner3.jpg" alt="banner2" class="img-polaroid">
 			</div>
 		</div>
 		

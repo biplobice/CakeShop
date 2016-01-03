@@ -128,7 +128,7 @@ class AppController extends Controller
         	$this->viewBuilder()->layout('frontend');
 		}
 
-		$this->Auth->allow(['login', 'account', 'about', 'contact']);
+		$this->Auth->allow(['login', 'account']);
 	    $this->set(compact('authUser'));
 	}
 

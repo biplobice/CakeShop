@@ -6,10 +6,10 @@
 					<div>
 			        <h3>Information</h3>
 				        <ul>
-					        <li><a href="about.html">About Us</a></li>
-						    <li><a href="#">Delivery Information</a></li>
-						    <li><a href="#">Privacy Policy</a></li>
-						    <li><a href="#">Terms & Conditions</a></li>
+						  <li><?= $this->Html->link('About Us', ['controller' => 'Pages', 'action' => 'about_us']) ?></li>
+						  <li><?= $this->Html->link('Delivery Information', ['controller' => 'Pages', 'action' => 'delivery_information']) ?></li>
+						  <li><?= $this->Html->link('Privacy Policys', ['controller' => 'Pages', 'action' => 'privacy_policy']) ?></li>
+						  <li><?= $this->Html->link('Terms & Conditions', ['controller' => 'Pages', 'action' => 'terms_and_conditions']) ?></li>
 					    </ul>
 					  </div>
 				</div>
@@ -17,10 +17,10 @@
 					<div>
 			        <h3>Customer Service</h3>
 				        <ul>
-					        <li><a href="contact.html" class="ajax_right">Contact Us</a></li>
-						    <li><a href="#">Returns</a></li>
-						    <li><a href="#">Site Map</a></li>
-							<li><a href="#">Shipping</a></li>
+						  <li><?= $this->Html->link('Contact Us', ['controller' => 'Pages', 'action' => 'contact_us'], ['class' => 'ajax_right']) ?></li>
+						  <li><?= $this->Html->link('Returns', ['controller' => 'Pages', 'action' => 'returns']) ?></li>
+						  <li><?= $this->Html->link('Site Map', ['controller' => 'Pages', 'action' => 'site_map']) ?></li>
+						  <li><?= $this->Html->link('Shipping', ['controller' => 'Pages', 'action' => 'shipping']) ?></li>
 				        </ul>	
 					  </div>
 				</div>	

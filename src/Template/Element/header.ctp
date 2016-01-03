@@ -16,8 +16,8 @@
                  <div class="navbar-collapse collapse navbar-right">
 					<ul class="nav navbar-nav">
 					  <li><?= $this->Html->link('Home', ['controller' => 'Products', 'action' => 'index']) ?></li>
-					  <li><?= $this->Html->link('About Us', ['controller' => 'Products', 'action' => 'about']) ?></li>
-					  <li><?= $this->Html->link('Contact Us', ['controller' => 'Products', 'action' => 'contact']) ?></li>
+					  <li><?= $this->Html->link('About Us', ['controller' => 'Pages', 'action' => 'about_us']) ?></li>
+					  <li><?= $this->Html->link('Contact Us', ['controller' => 'Pages', 'action' => 'contact_us']) ?></li>
                     </ul>
 
 			        <?php if(isset($authUser['id']) && !empty($authUser['id'])): ?>  

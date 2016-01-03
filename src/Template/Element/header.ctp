@@ -82,7 +82,7 @@
 
                  <?php else: ?>
                <ul class="nav navbar-nav">
-                  <li><a href="#">Sign Up</a></li>
+                  <li><?= $this->Html->link('Sign Up', ['controller' => 'Users', 'action' => 'account']) ?></li>
                   <li class="dropdown">
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign in <b class="caret"></b></a>
                      <ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">

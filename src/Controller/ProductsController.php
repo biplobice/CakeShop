@@ -22,16 +22,31 @@ class ProductsController extends AppController
      *
      * @return void
      */
-    public function index()
+    public function index($cat_id=null, $sub_cat_id=null)
     {
+    	// Set leftmenu 
     	$this->loadModel('Categories');	
     	$query = $this->Categories->find('all', [
     		'contain' => ['SubCategories']
     	]);
 		$this->set('categories', $query);
+		
+		// Set conditions
+		$conditions = array();
+		if (!empty($cat_id)) {
+			$conditions['Products.category_id'] = $cat_id;
+		}
+		if (!empty($sub_cat_id)) {
+			$conditions['Products.sub_category_id'] = $sub_cat_id;
+		}
 		    	
         $this->paginate = [
-            'contain' => ['Categories', 'SubCategories']
+        	'conditions' => $conditions,
+            'contain' => ['Categories', 'SubCategories', 'Discounts' => function ($q) {
+            	return $q
+            		->where(['Discounts.start_at <' => date('Y-m-d H:i:s'), 'Discounts.end_at >' => date('Y-m-d H:i:s')])
+            		->limit(1);
+            }]
         ];
         $this->set('products', $this->paginate($this->Products));
         $this->set('_serialize', ['products']);

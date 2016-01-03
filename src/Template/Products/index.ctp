@@ -1,24 +1,25 @@
     <?= $this->Html->css('camera.css') ?>
-
-		<?= $this->element('slider') ?>
-		
-		<?php //pr($authUser); ?>		
-		<?php //pr($products); ?>		
+ 
+  	<div class="container">
+  
+		<?php
+			if (empty($this->request->params['pass'])) {
+				echo $this->element('slider');
+			}
+		?>
+	
 				
 		<div class="row">
 		    <div class="col-md-3 left-menu">
 				<div class="">
-					<h3>Category All</h3>
-					<ul>
-						<li class="active"><a href="category.html">Sub Category All</a></li>
-					</ul>
+					<h3><?= $this->Html->link('All Products', ['controller' => 'Products', 'action' => 'index']) ?></h3>
 					<?php
 						foreach ($categories as $category) {
-							echo '<h3>'.$category['name'].'</h3>';
+							echo '<h3>'.$this->Html->link($category['name'], ['controller' => 'Products', 'action' => 'index', $category['id']]).'</h3>';
 							if (!empty($category['sub_categories'])) {
 								echo '<ul>';
 								foreach ($category['sub_categories'] as $sub_category) {
-									echo '<li><a href="category.html">'.$sub_category['name'].'</a></li>';
+									echo '<li>'. $this->Html->link($sub_category['name'], ['controller' => 'Products', 'action' => 'index', $category['id'], $sub_category['id']]) . '</li>';
 								}
 								echo '</ul>';
 							}
@@ -47,18 +48,29 @@
 			<?php foreach($products as $product): ?>
 		    <div class="col-md-4">
 			    <div class="product">
-			    	<?= ($product['discount']) ? '<div class="product_sale">-'.$product['discount'].'%</div>' : ''  ?>
+			    	<?= ($product['discounts']) ? '<div class="product_sale">-'.$product['discounts'][0]['amount'].'%</div>' : ''  ?>
 				    <?= $this->Html->image( '../' . $product['thumb'], ['url' => ['action' => 'view', $product['id']]] ) ?>
 					<div class="name">
 				    <a href="#"><?= $product['name'] ?></a>
 				    </div>
 				    <div class="price">
-				    <p>$<?= $product['sell_price'] ?></p>
+				    <p><?= $this->number->currency($product['sell_price']) ?></p>
 				    </div>
 				</div>
 			</div>			
 			<?php endforeach; ?>
 		
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="pagination pull-right">
+		            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+		            <?= $this->Paginator->numbers() ?>
+		            <?= $this->Paginator->next(__('next') . ' >') ?>
+				</ul>
+				<!-- <p><?= $this->Paginator->counter() ?></p> -->
+			</div>
 		</div>
 
 			<div class="row">

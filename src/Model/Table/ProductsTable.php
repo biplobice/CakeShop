@@ -12,6 +12,9 @@ use Cake\Validation\Validator;
  *
  * @property \Cake\ORM\Association\BelongsTo $Categories
  * @property \Cake\ORM\Association\BelongsTo $SubCategories
+ * @property \Cake\ORM\Association\HasMany $Carts
+ * @property \Cake\ORM\Association\HasMany $Discounts
+ * @property \Cake\ORM\Association\HasMany $Purchases
  */
 class ProductsTable extends Table
 {
@@ -38,6 +41,16 @@ class ProductsTable extends Table
         $this->belongsTo('SubCategories', [
             'foreignKey' => 'sub_category_id'
         ]);
+        $this->hasMany('Carts', [
+            'foreignKey' => 'product_id'
+        ]);
+        $this->hasMany('Discounts', [
+            'foreignKey' => 'product_id',
+            'sort'		 => 'Discounts.end_at DESC'
+        ]);
+        $this->hasMany('Purchases', [
+            'foreignKey' => 'product_id'
+        ]);
     }
 
     /**
@@ -56,8 +69,11 @@ class ProductsTable extends Table
             ->allowEmpty('sku');
 
         $validator
-            ->requirePresence('name', 'create')
-            ->notEmpty('name');
+            ->allowEmpty('name');
+
+        $validator
+            ->requirePresence('model', 'create')
+            ->notEmpty('model');
 
         $validator
             ->allowEmpty('description');
@@ -72,7 +88,8 @@ class ProductsTable extends Table
 
         $validator
             ->add('units_in_stock', 'valid', ['rule' => 'numeric'])
-            ->allowEmpty('units_in_stock');
+            ->requirePresence('units_in_stock', 'create')
+            ->notEmpty('units_in_stock');
 
         $validator
             ->allowEmpty('size');
@@ -88,8 +105,12 @@ class ProductsTable extends Table
             ->allowEmpty('rating');
 
         $validator
-            ->add('thumb', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('thumb');
+
+        $validator
+            ->add('status', 'valid', ['rule' => 'boolean'])
+            ->requirePresence('status', 'create')
+            ->notEmpty('status');
 
         return $validator;
     }

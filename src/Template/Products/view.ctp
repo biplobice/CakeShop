@@ -18,15 +18,15 @@
 				  </div>
   			</div>
 		    <div class="col-md-6">
-				<h1>White bed</h1>
+				<h1><?= $product['name'] ?></h1>
 				    <div class="line"></div>
 						<ul>
 							<li><span>Brand:</span> <a href="#">Shop Online</a></li>
-							<li><span>Product Code:</span> Product 001</li>
-							<li><span>Availability: </span>In Stock</li>
+							<li><span>Product Code:</span> <?= $product['sku'] ?></li>
+							<li><span>Availability: </span><?= ($product['units_in_stock'] > 0) ? 'In Stock' : 'Not available' ?></li>
 						</ul>
 					<div class="price">
-						Price <span class="strike">$150.00</span> <strong>$125.00</strong>
+						Price <span class="strike">$<?= $this->Number->precision($product['sell_price'], 2) ?></span> <strong>$125.00</strong>
 					</div>
 					<!--
 						<span class="price-tax">Ex Tax: $400.00</span>

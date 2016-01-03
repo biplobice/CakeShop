@@ -4,30 +4,18 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Product Entity.
+ * Discount Entity.
  *
  * @property int $id
- * @property int $category_id
- * @property \App\Model\Entity\Category $category
- * @property int $sub_category_id
- * @property \App\Model\Entity\SubCategory $sub_category
- * @property string $sku
- * @property string $name
- * @property string $model
- * @property string $description
- * @property float $buy_price
- * @property float $sell_price
- * @property int $units_in_stock
- * @property string $size
- * @property string $color
- * @property string $weight
- * @property int $rating
- * @property string $thumb
+ * @property int $product_id
+ * @property \App\Model\Entity\Product $product
+ * @property float $amount
+ * @property \Cake\I18n\Time $start_at
+ * @property \Cake\I18n\Time $end_at
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
- * @property bool $status
  */
-class Product extends Entity
+class Discount extends Entity
 {
 
     /**

@@ -1,16 +1,8 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Purchase'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Orders'), ['controller' => 'Orders', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Order'), ['controller' => 'Orders', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Products'), ['controller' => 'Products', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Product'), ['controller' => 'Products', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
+
 <div class="purchases index large-9 medium-8 columns content">
-    <h3><?= __('Purchases') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <?= $this->Html->link(__('Add New'), ['action' => 'add'], ['class' => 'btn btn-success pull-right']) ?>
+    <h3 class="page-header"><?= __('Purchases') ?></h3>
+    <table class="table table-responsive table-condensed table-striped">
         <thead>
             <tr>
                 <th><?= $this->Paginator->sort('id') ?></th>
@@ -34,9 +26,9 @@
                 <td><?= h($purchase->created) ?></td>
                 <td><?= h($purchase->modified) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $purchase->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $purchase->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $purchase->id], ['confirm' => __('Are you sure you want to delete # {0}?', $purchase->id)]) ?>
+                    <?= $this->Html->link(__('<i class="glyphicon glyphicon-eye-open"></i>'), ['action' => 'view', $purchase->id], ['class' => 'btn btn-xs btn-primary', 'escapeTitle' => false]) ?>
+                    <?= $this->Html->link(__('<i class="glyphicon glyphicon-edit"></i>'), ['action' => 'edit', $purchase->id], ['class' => 'btn btn-xs btn-warning', 'escapeTitle' => false]) ?>
+                    <?= $this->Form->postLink(__('<i class="glyphicon glyphicon-trash"></i>'), ['action' => 'delete', $purchase->id], ['confirm' => __('Are you sure you want to delete # {0}?', $purchase->id), 'class' => 'btn btn-xs btn-danger', 'escapeTitle' => false]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

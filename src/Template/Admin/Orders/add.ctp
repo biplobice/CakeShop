@@ -18,6 +18,7 @@
             echo $this->Form->input('city');
             echo $this->Form->input('zip');
             echo $this->Form->input('state');
+            echo $this->Form->input('status');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

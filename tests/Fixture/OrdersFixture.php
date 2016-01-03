@@ -25,6 +25,7 @@ class OrdersFixture extends TestFixture
         'state' => ['type' => 'string', 'length' => 64, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'fixed' => null],
         'created' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         'modified' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
+        'status' => ['type' => 'integer', 'length' => 1, 'unsigned' => true, 'null' => false, 'default' => '1', 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -48,8 +49,9 @@ class OrdersFixture extends TestFixture
             'city' => 'Lorem ipsum dolor sit amet',
             'zip' => 1,
             'state' => 'Lorem ipsum dolor sit amet',
-            'created' => '2016-01-02 17:02:11',
-            'modified' => '2016-01-02 17:02:11'
+            'created' => '2016-01-03 14:34:07',
+            'modified' => '2016-01-03 14:34:07',
+            'status' => 1
         ],
     ];
 }

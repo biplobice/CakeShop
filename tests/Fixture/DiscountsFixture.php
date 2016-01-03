@@ -24,6 +24,7 @@ class DiscountsFixture extends TestFixture
         'end_at' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         'created' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         'modified' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
+        'status' => ['type' => 'boolean', 'length' => null, 'null' => false, 'default' => '1', 'comment' => '', 'precision' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -44,10 +45,11 @@ class DiscountsFixture extends TestFixture
             'id' => 1,
             'product_id' => 1,
             'amount' => 1,
-            'start_at' => '2016-01-03 06:39:20',
-            'end_at' => '2016-01-03 06:39:20',
-            'created' => '2016-01-03 06:39:20',
-            'modified' => '2016-01-03 06:39:20'
+            'start_at' => '2016-01-03 14:19:11',
+            'end_at' => '2016-01-03 14:19:11',
+            'created' => '2016-01-03 14:19:11',
+            'modified' => '2016-01-03 14:19:11',
+            'status' => 1
         ],
     ];
 }

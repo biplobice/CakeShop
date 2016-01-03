@@ -21,7 +21,10 @@ class CartsTableTest extends TestCase
         'app.users',
         'app.products',
         'app.categories',
-        'app.sub_categories'
+        'app.sub_categories',
+        'app.discounts',
+        'app.purchases',
+        'app.orders'
     ];
 
     /**

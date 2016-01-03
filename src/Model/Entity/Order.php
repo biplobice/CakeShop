@@ -15,6 +15,7 @@ use Cake\ORM\Entity;
  * @property string $state
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
+ * @property int $status
  * @property \App\Model\Entity\Purchase[] $purchases
  */
 class Order extends Entity

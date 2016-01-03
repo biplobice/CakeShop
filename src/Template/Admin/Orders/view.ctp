@@ -1,17 +1,9 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Order'), ['action' => 'edit', $order->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Order'), ['action' => 'delete', $order->id], ['confirm' => __('Are you sure you want to delete # {0}?', $order->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Orders'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Order'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Purchases'), ['controller' => 'Purchases', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Purchase'), ['controller' => 'Purchases', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
+
 <div class="orders view large-9 medium-8 columns content">
+    <div class="pull-right">
+        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $order->id]) ?> |
+        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $order->id], ['confirm' => __('Are you sure you want to delete # {0}?', $order->id)]) ?>
+    </div>	
     <h3><?= h($order->id) ?></h3>
     <table class="vertical-table">
         <tr>
@@ -35,6 +27,10 @@
             <td><?= $this->Number->format($order->zip) ?></td>
         </tr>
         <tr>
+            <th><?= __('Status') ?></th>
+            <td><?= $this->Number->format($order->status) ?></td>
+        </tr>
+        <tr>
             <th><?= __('Created') ?></th>
             <td><?= h($order->created) ?></td>
         </tr>
@@ -50,7 +46,7 @@
     <div class="related">
         <h4><?= __('Related Purchases') ?></h4>
         <?php if (!empty($order->purchases)): ?>
-        <table cellpadding="0" cellspacing="0">
+        <table class="table table-responsive table-condensed table-striped">
             <tr>
                 <th><?= __('Id') ?></th>
                 <th><?= __('Order Id') ?></th>
@@ -71,11 +67,11 @@
                 <td><?= h($purchases->created) ?></td>
                 <td><?= h($purchases->modified) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Purchases', 'action' => 'view', $purchases->id]) ?>
+                    <?= $this->Html->link(__('<i class="glyphicon glyphicon-eye-open"></i>'), ['controller' => 'Purchases', 'action' => 'view', $purchases->id], ['class' => 'btn btn-xs btn-primary', 'escapeTitle' => false]) ?>
 
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Purchases', 'action' => 'edit', $purchases->id]) ?>
+                    <?= $this->Html->link(__('<i class="glyphicon glyphicon-edit"></i>'), ['controller' => 'Purchases', 'action' => 'edit', $purchases->id], ['class' => 'btn btn-xs btn-warning', 'escapeTitle' => false]) ?>
 
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Purchases', 'action' => 'delete', $purchases->id], ['confirm' => __('Are you sure you want to delete # {0}?', $purchases->id)]) ?>
+                    <?= $this->Form->postLink(__('<i class="glyphicon glyphicon-trash"></i>'), ['controller' => 'Purchases', 'action' => 'delete', $purchases->id], ['confirm' => __('Are you sure you want to delete # {0}?', $purchases->id), 'class' => 'btn btn-xs btn-danger', 'escapeTitle' => false]) ?>
 
                 </td>
             </tr>

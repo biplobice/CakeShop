@@ -45,8 +45,8 @@ class SubCategoriesFixture extends TestFixture
             'category_id' => 1,
             'name' => 'Lorem ipsum dolor sit amet',
             'description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
-            'created' => '2015-12-31 07:25:37',
-            'modified' => '2015-12-31 07:25:37',
+            'created' => '2016-01-03 14:35:02',
+            'modified' => '2016-01-03 14:35:02',
             'status' => 1
         ],
     ];

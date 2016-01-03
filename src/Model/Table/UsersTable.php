@@ -10,6 +10,9 @@ use Cake\Validation\Validator;
 /**
  * Users Model
  *
+ * @property \Cake\ORM\Association\HasMany $Carts
+ * @property \Cake\ORM\Association\HasMany $Orders
+ * @property \Cake\ORM\Association\HasMany $Reviews
  */
 class UsersTable extends Table
 {
@@ -30,6 +33,15 @@ class UsersTable extends Table
 
         $this->addBehavior('Timestamp');
 
+        $this->hasMany('Carts', [
+            'foreignKey' => 'user_id'
+        ]);
+        $this->hasMany('Orders', [
+            'foreignKey' => 'user_id'
+        ]);
+        $this->hasMany('Reviews', [
+            'foreignKey' => 'user_id'
+        ]);
     }
 
     /**
@@ -52,6 +64,57 @@ class UsersTable extends Table
         $validator
             ->requirePresence('password', 'create')
             ->notEmpty('password');
+
+        $validator
+            ->requirePresence('first_name', 'create')
+            ->notEmpty('first_name');
+
+        $validator
+            ->requirePresence('last_name', 'create')
+            ->notEmpty('last_name');
+
+        $validator
+            ->allowEmpty('company_name');
+
+        $validator
+            ->allowEmpty('avatar');
+
+        $validator
+            ->add('birth_date', 'valid', ['rule' => 'date'])
+            ->allowEmpty('birth_date');
+
+        $validator
+            ->requirePresence('address', 'create')
+            ->notEmpty('address');
+
+        $validator
+            ->allowEmpty('address2');
+
+        $validator
+            ->requirePresence('city', 'create')
+            ->notEmpty('city');
+
+        $validator
+            ->add('zip', 'valid', ['rule' => 'numeric'])
+            ->requirePresence('zip', 'create')
+            ->notEmpty('zip');
+
+        $validator
+            ->allowEmpty('country');
+
+        $validator
+            ->requirePresence('phone', 'create')
+            ->notEmpty('phone');
+
+        $validator
+            ->add('role', 'valid', ['rule' => 'numeric'])
+            ->requirePresence('role', 'create')
+            ->notEmpty('role');
+
+        $validator
+            ->add('status', 'valid', ['rule' => 'boolean'])
+            ->requirePresence('status', 'create')
+            ->notEmpty('status');
 
         return $validator;
     }

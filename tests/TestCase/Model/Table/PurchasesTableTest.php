@@ -22,7 +22,11 @@ class PurchasesTableTest extends TestCase
         'app.users',
         'app.products',
         'app.categories',
-        'app.sub_categories'
+        'app.sub_categories',
+        'app.carts',
+        'app.discounts',
+        'app.product_images',
+        'app.reviews'
     ];
 
     /**

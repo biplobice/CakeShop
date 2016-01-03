@@ -20,12 +20,15 @@ use Cake\ORM\Entity;
  * @property int $units_in_stock
  * @property string $size
  * @property string $color
- * @property string $weight
+ * @property float $weight
  * @property int $rating
  * @property string $thumb
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
  * @property bool $status
+ * @property \App\Model\Entity\Cart[] $carts
+ * @property \App\Model\Entity\Discount[] $discounts
+ * @property \App\Model\Entity\Purchase[] $purchases
  */
 class Product extends Entity
 {

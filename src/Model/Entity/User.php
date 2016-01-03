@@ -10,8 +10,21 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $email
  * @property string $password
+ * @property string $first_name
+ * @property string $last_name
+ * @property string $company_name
+ * @property string $avatar
+ * @property \Cake\I18n\Time $birth_date
+ * @property string $address
+ * @property string $address2
+ * @property string $city
+ * @property int $zip
+ * @property string $country
+ * @property string $phone
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
+ * @property int $role
+ * @property bool $status
  */
 class User extends Entity
 {

@@ -29,7 +29,7 @@ class ProductsFixture extends TestFixture
         'units_in_stock' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => '0', 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'size' => ['type' => 'string', 'length' => 64, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'fixed' => null],
         'color' => ['type' => 'string', 'length' => 64, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'fixed' => null],
-        'weight' => ['type' => 'string', 'length' => 64, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'fixed' => null],
+        'weight' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => ''],
         'rating' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'thumb' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => '', 'comment' => '', 'precision' => null, 'fixed' => null],
         'created' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
@@ -64,11 +64,11 @@ class ProductsFixture extends TestFixture
             'units_in_stock' => 1,
             'size' => 'Lorem ipsum dolor sit amet',
             'color' => 'Lorem ipsum dolor sit amet',
-            'weight' => 'Lorem ipsum dolor sit amet',
+            'weight' => 1,
             'rating' => 1,
             'thumb' => 'Lorem ipsum dolor sit amet',
-            'created' => '2016-01-03 06:37:53',
-            'modified' => '2016-01-03 06:37:53',
+            'created' => '2016-01-03 14:34:36',
+            'modified' => '2016-01-03 14:34:36',
             'status' => 1
         ],
     ];

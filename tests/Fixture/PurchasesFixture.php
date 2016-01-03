@@ -46,8 +46,8 @@ class PurchasesFixture extends TestFixture
             'product_id' => 1,
             'price' => 1,
             'quantity' => 1,
-            'created' => '2016-01-02 17:02:40',
-            'modified' => '2016-01-02 17:02:40'
+            'created' => '2016-01-03 14:34:44',
+            'modified' => '2016-01-03 14:34:44'
         ],
     ];
 }

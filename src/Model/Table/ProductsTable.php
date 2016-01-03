@@ -14,7 +14,9 @@ use Cake\Validation\Validator;
  * @property \Cake\ORM\Association\BelongsTo $SubCategories
  * @property \Cake\ORM\Association\HasMany $Carts
  * @property \Cake\ORM\Association\HasMany $Discounts
+ * @property \Cake\ORM\Association\HasMany $ProductImages
  * @property \Cake\ORM\Association\HasMany $Purchases
+ * @property \Cake\ORM\Association\HasMany $Reviews
  */
 class ProductsTable extends Table
 {
@@ -45,10 +47,15 @@ class ProductsTable extends Table
             'foreignKey' => 'product_id'
         ]);
         $this->hasMany('Discounts', [
-            'foreignKey' => 'product_id',
-            'sort'		 => 'Discounts.end_at DESC'
+            'foreignKey' => 'product_id'
+        ]);
+        $this->hasMany('ProductImages', [
+            'foreignKey' => 'product_id'
         ]);
         $this->hasMany('Purchases', [
+            'foreignKey' => 'product_id'
+        ]);
+        $this->hasMany('Reviews', [
             'foreignKey' => 'product_id'
         ]);
     }
@@ -98,6 +105,7 @@ class ProductsTable extends Table
             ->allowEmpty('color');
 
         $validator
+            ->add('weight', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('weight');
 
         $validator

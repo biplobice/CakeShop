@@ -64,6 +64,11 @@ class DiscountsTable extends Table
             ->requirePresence('end_at', 'create')
             ->notEmpty('end_at');
 
+        $validator
+            ->add('status', 'valid', ['rule' => 'boolean'])
+            ->requirePresence('status', 'create')
+            ->notEmpty('status');
+
         return $validator;
     }
 

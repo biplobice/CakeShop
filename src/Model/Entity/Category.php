@@ -12,6 +12,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
  * @property bool $status
+ * @property \App\Model\Entity\SubCategory[] $sub_categories
  * @property \App\Model\Entity\Product[] $products
  */
 class Category extends Entity

@@ -1,4 +1,9 @@
+
 <div class="subCategories view large-9 medium-8 columns content">
+    <div class="pull-right">
+        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $subCategory->id]) ?> |
+        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $subCategory->id], ['confirm' => __('Are you sure you want to delete # {0}?', $subCategory->id)]) ?>
+    </div>	
     <h3><?= h($subCategory->name) ?></h3>
     <table class="vertical-table">
         <tr>
@@ -33,13 +38,14 @@
     <div class="related">
         <h4><?= __('Related Products') ?></h4>
         <?php if (!empty($subCategory->products)): ?>
-        <table cellpadding="0" cellspacing="0">
+        <table class="table table-responsive table-condensed table-striped">
             <tr>
                 <th><?= __('Id') ?></th>
                 <th><?= __('Category Id') ?></th>
                 <th><?= __('Sub Category Id') ?></th>
                 <th><?= __('Sku') ?></th>
                 <th><?= __('Name') ?></th>
+                <th><?= __('Model') ?></th>
                 <th><?= __('Description') ?></th>
                 <th><?= __('Buy Price') ?></th>
                 <th><?= __('Sell Price') ?></th>
@@ -51,6 +57,7 @@
                 <th><?= __('Thumb') ?></th>
                 <th><?= __('Created') ?></th>
                 <th><?= __('Modified') ?></th>
+                <th><?= __('Status') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($subCategory->products as $products): ?>
@@ -60,6 +67,7 @@
                 <td><?= h($products->sub_category_id) ?></td>
                 <td><?= h($products->sku) ?></td>
                 <td><?= h($products->name) ?></td>
+                <td><?= h($products->model) ?></td>
                 <td><?= h($products->description) ?></td>
                 <td><?= h($products->buy_price) ?></td>
                 <td><?= h($products->sell_price) ?></td>
@@ -71,12 +79,13 @@
                 <td><?= h($products->thumb) ?></td>
                 <td><?= h($products->created) ?></td>
                 <td><?= h($products->modified) ?></td>
+                <td><?= h($products->status) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Products', 'action' => 'view', $products->id]) ?>
+                    <?= $this->Html->link(__('<i class="glyphicon glyphicon-eye-open"></i>'), ['controller' => 'Products', 'action' => 'view', $products->id], ['class' => 'btn btn-xs btn-primary', 'escapeTitle' => false]) ?>
 
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Products', 'action' => 'edit', $products->id]) ?>
+                    <?= $this->Html->link(__('<i class="glyphicon glyphicon-edit"></i>'), ['controller' => 'Products', 'action' => 'edit', $products->id], ['class' => 'btn btn-xs btn-warning', 'escapeTitle' => false]) ?>
 
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Products', 'action' => 'delete', $products->id], ['confirm' => __('Are you sure you want to delete # {0}?', $products->id)]) ?>
+                    <?= $this->Form->postLink(__('<i class="glyphicon glyphicon-trash"></i>'), ['controller' => 'Products', 'action' => 'delete', $products->id], ['confirm' => __('Are you sure you want to delete # {0}?', $products->id), 'class' => 'btn btn-xs btn-danger', 'escapeTitle' => false]) ?>
 
                 </td>
             </tr>

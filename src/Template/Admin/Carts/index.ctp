@@ -1,16 +1,8 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Cart'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Products'), ['controller' => 'Products', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Product'), ['controller' => 'Products', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
+
 <div class="carts index large-9 medium-8 columns content">
-    <h3><?= __('Carts') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <?= $this->Html->link(__('Add New'), ['action' => 'add'], ['class' => 'btn btn-success pull-right']) ?>
+    <h3 class="page-header"><?= __('Carts') ?></h3>
+    <table class="table table-responsive table-condensed table-striped">
         <thead>
             <tr>
                 <th><?= $this->Paginator->sort('id') ?></th>
@@ -34,9 +26,9 @@
                 <td><?= h($cart->created) ?></td>
                 <td><?= h($cart->modified) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $cart->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $cart->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $cart->id], ['confirm' => __('Are you sure you want to delete # {0}?', $cart->id)]) ?>
+                    <?= $this->Html->link(__('<i class="glyphicon glyphicon-eye-open"></i>'), ['action' => 'view', $cart->id], ['class' => 'btn btn-xs btn-primary', 'escapeTitle' => false]) ?>
+                    <?= $this->Html->link(__('<i class="glyphicon glyphicon-edit"></i>'), ['action' => 'edit', $cart->id], ['class' => 'btn btn-xs btn-warning', 'escapeTitle' => false]) ?>
+                    <?= $this->Form->postLink(__('<i class="glyphicon glyphicon-trash"></i>'), ['action' => 'delete', $cart->id], ['confirm' => __('Are you sure you want to delete # {0}?', $cart->id), 'class' => 'btn btn-xs btn-danger', 'escapeTitle' => false]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

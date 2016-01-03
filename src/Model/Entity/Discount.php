@@ -14,6 +14,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\Time $end_at
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
+ * @property bool $status
  */
 class Discount extends Entity
 {

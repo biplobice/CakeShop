@@ -19,7 +19,14 @@ class SubCategoriesTableTest extends TestCase
     public $fixtures = [
         'app.sub_categories',
         'app.categories',
-        'app.products'
+        'app.products',
+        'app.carts',
+        'app.users',
+        'app.discounts',
+        'app.product_images',
+        'app.purchases',
+        'app.orders',
+        'app.reviews'
     ];
 
     /**

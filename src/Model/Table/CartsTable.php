@@ -60,6 +60,10 @@ class CartsTable extends Table
             ->add('quantity', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('quantity');
 
+        $validator
+            ->add('status', 'valid', ['rule' => 'boolean'])
+            ->allowEmpty('status');
+
         return $validator;
     }
 

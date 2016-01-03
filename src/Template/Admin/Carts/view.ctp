@@ -1,17 +1,9 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Cart'), ['action' => 'edit', $cart->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Cart'), ['action' => 'delete', $cart->id], ['confirm' => __('Are you sure you want to delete # {0}?', $cart->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Carts'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Cart'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Products'), ['controller' => 'Products', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Product'), ['controller' => 'Products', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
+
 <div class="carts view large-9 medium-8 columns content">
+    <div class="pull-right">
+        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $cart->id]) ?> |
+        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $cart->id], ['confirm' => __('Are you sure you want to delete # {0}?', $cart->id)]) ?>
+    </div>	
     <h3><?= h($cart->id) ?></h3>
     <table class="vertical-table">
         <tr>
@@ -42,5 +34,9 @@
             <th><?= __('Modified') ?></th>
             <td><?= h($cart->modified) ?></td>
         </tr>
+        <tr>
+            <th><?= __('Status') ?></th>
+            <td><?= $cart->status ? __('Yes') : __('No'); ?></td>
+         </tr>
     </table>
 </div>

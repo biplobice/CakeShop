@@ -17,6 +17,7 @@
             echo $this->Form->input('product_id', ['options' => $products, 'empty' => true]);
             echo $this->Form->input('price');
             echo $this->Form->input('quantity');
+            echo $this->Form->input('status');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

@@ -62,7 +62,11 @@ class ProductsController extends AppController
     public function view($id = null)
     {
         $product = $this->Products->get($id, [
-            'contain' => ['Categories', 'SubCategories']
+            'contain' => ['Categories', 'SubCategories', 'Discounts' => function ($q) {
+            	return $q
+            		->where(['Discounts.start_at <' => date('Y-m-d H:i:s'), 'Discounts.end_at >' => date('Y-m-d H:i:s')])
+            		->limit(1);
+            }]
         ]);
         $this->set('product', $product);
         $this->set('_serialize', ['product']);

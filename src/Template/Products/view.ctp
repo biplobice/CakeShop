@@ -26,7 +26,15 @@
 							<li><span>Availability: </span><?= ($product['units_in_stock'] > 0) ? 'In Stock' : 'Not available' ?></li>
 						</ul>
 					<div class="price">
-						Price <span class="strike">$<?= $this->Number->precision($product['sell_price'], 2) ?></span> <strong>$125.00</strong>
+						Price
+						<?php
+							if ($product['discounts']) {
+								echo '<span class="strike">'. $this->number->currency($product['sell_price']) .'</span> ';
+								echo '<strong>'. $this->number->currency( $product['sell_price'] - ($product['sell_price'] * ($product['discounts'][0]['amount'] / 100) )) .'</strong>';
+							} else {
+								echo '<strong>'.$this->number->currency($product['sell_price']).'</strong>';
+							}
+						?>
 					</div>
 					<!--
 						<span class="price-tax">Ex Tax: $400.00</span>
@@ -82,7 +90,7 @@
 						<li><a href="#messages">Reviews</a></li>
 					</ul>
 					<div class="tab-content">
-						<div class="tab-pane active" id="home">When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then </div>
+						<div class="tab-pane active" id="home"><?= $product['description'] ?> </div>
 						<div class="tab-pane" id="profile">
 							<table class="table specs">
 							    <tr>
@@ -91,9 +99,9 @@
 								    <th>Weight</th>
 							    </tr>
 							    <tr>
-								    <td>Blue</td>
-								    <td>XS</td>
-								    <td>1.00</td>
+								    <td><?= $product['color'] ?></td>
+								    <td><?= $product['size'] ?></td>
+								    <td><?= $this->number->precision($product['weight'], 2) ?></td>
 							    </tr>
 							    <tr>
 								    <th>Composition</th>

@@ -16,12 +16,13 @@
     echo $this->Html->meta('icon');
     echo $this->Html->css( array(
         'bootstrap',
-        'admin'
+        'admin',
+        'font-awesome'
     ));
     echo $this->Html->script( array(
-        'jquery.min',
+        'jquery.min.js',
         'bootstrap.min',
-        'admin.scripts'
+        //'admin.scripts'
     ));
     echo $this->fetch('meta');
     echo $this->fetch('css');
@@ -36,28 +37,35 @@
 </head>
 
 <body>
+	
+    <div id="wrapper">
 	<?= $this->element('Admin/navbar') ?>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-3">
-                <div class="well">
-                	<?= $this->element('Admin/leftbar') ?>
-                </div>
-            </div><!-- /.col-sm-3-->
-            <div class="col-sm-9">
-                <div class="well">
+
+
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
                     <?php //echo $this->Session->flash(); ?>
-                    <?php echo $this->fetch('content'); ?>                    
-                </div>
-            </div><!-- /.col-sm-9-->
-        </div><!-- /.row -->
-    </div><!-- /.container-->
+                    <?php echo $this->fetch('content'); ?>       
+
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+	
+
     
     <footer>
         <div class="container">
             <div class="row">
                 <div class="text-center">
-                        &copy; <?php echo date( 'Y' ); ?> SmartMux, Dhaka, Bangladesh.                 
+                        &copy; <?php echo date( 'Y' ); ?> Biplob, Tokyo, Japan.                 
                 </div>
             </div>
         </div>

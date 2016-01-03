@@ -23,7 +23,7 @@ $description = 'CakePHP: the rapid development php framework';
 
 	<!-- script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write("<script src='js/jquery-1.10.2.min.js'><\/script>")</script -->
-	<?= $this->Html->script('jquery-1.10.2.min.js') ?>
+	<?= $this->Html->script('jquery.min.js') ?>
 	<?= $this->Html->script('bootstrap.min.js') ?>
 	<?= $this->Html->script('bootstrap-select.min.js') ?>
 	<?= $this->Html->script('jquery.easing.1.3.js') ?>

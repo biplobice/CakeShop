@@ -30,6 +30,10 @@ class ProductImagesTable extends Table
         $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');
+		
+		$this->addBehavior('Utils.Uploadable', [
+			'image'
+		]);
 
         $this->belongsTo('Products', [
             'foreignKey' => 'product_id',
@@ -49,9 +53,9 @@ class ProductImagesTable extends Table
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create');
 
-        $validator
-            ->requirePresence('image', 'create')
-            ->notEmpty('image');
+        // $validator
+            // ->requirePresence('image', 'create')
+            // ->notEmpty('image');
 
         $validator
             ->allowEmpty('description');

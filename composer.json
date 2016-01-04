@@ -10,7 +10,8 @@
         "mobiledetect/mobiledetectlib": "2.*",
         "cakephp/migrations": "~1.0",
         "cakephp/plugin-installer": "*",
-        "holt59/cakephp3-bootstrap-helpers": "dev-master"
+        "holt59/cakephp3-bootstrap-helpers": "dev-master",
+        "cakemanager/cakephp-utils": "dev-master"
     },
     "require-dev": {
         "psy/psysh": "@stable",

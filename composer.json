@@ -6,12 +6,12 @@
     "license": "MIT",
     "require": {
         "php": ">=5.4.16",
-        "cakephp/cakephp": "3.5",
+        "cakephp/cakephp": "3.6.x",
         "mobiledetect/mobiledetectlib": "2.*",
         "cakephp/migrations": "~1.0",
         "holt59/cakephp3-bootstrap-helpers": "dev-master",
         "cakemanager/cakephp-utils": "dev-master",
-        "cakephp/plugin-installer": "0.0.15"
+        "cakephp/plugin-installer": "^1.1"
     },
     "require-dev": {
         "psy/psysh": "@stable",

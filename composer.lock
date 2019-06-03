@@ -94,16 +94,16 @@
         },
         {
             "name": "cakephp/cakephp",
-            "version": "3.7.6",
+            "version": "3.7.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "e5d50ddf5ca1069a029c16bac58413bb01b205ab"
+                "reference": "035458f3f4832b25acb685d6d2f47d4ca518cb8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/e5d50ddf5ca1069a029c16bac58413bb01b205ab",
-                "reference": "e5d50ddf5ca1069a029c16bac58413bb01b205ab",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/035458f3f4832b25acb685d6d2f47d4ca518cb8b",
+                "reference": "035458f3f4832b25acb685d6d2f47d4ca518cb8b",
                 "shasum": ""
             },
             "require": {
@@ -179,20 +179,20 @@
                 "rapid-development",
                 "validation"
             ],
-            "time": "2019-04-10T00:59:33+00:00"
+            "time": "2019-05-30T02:33:00+00:00"
         },
         {
             "name": "cakephp/chronos",
-            "version": "1.2.4",
+            "version": "1.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/chronos.git",
-                "reference": "ebda7326d4a65e53bc5bb915ebbbeee98f1926b0"
+                "reference": "5af476617f8a2919a829b92df4f8c3c62e23f4c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/chronos/zipball/ebda7326d4a65e53bc5bb915ebbbeee98f1926b0",
-                "reference": "ebda7326d4a65e53bc5bb915ebbbeee98f1926b0",
+                "url": "https://api.github.com/repos/cakephp/chronos/zipball/5af476617f8a2919a829b92df4f8c3c62e23f4c5",
+                "reference": "5af476617f8a2919a829b92df4f8c3c62e23f4c5",
                 "shasum": ""
             },
             "require": {
@@ -236,7 +236,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2019-02-11T02:08:31+00:00"
+            "time": "2019-05-30T13:29:03+00:00"
         },
         {
             "name": "cakephp/migrations",

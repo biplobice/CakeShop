@@ -1,7 +1,7 @@
 {
     "name": "cakephp/app",
-    "description": "CakePHP skeleton app",
-    "homepage": "http://cakephp.org",
+    "description": "eCommerce Site with CakePHP",
+    "homepage": "https://cakephp.org",
     "type": "project",
     "license": "MIT",
     "require": {
@@ -11,9 +11,11 @@
         "cakephp/migrations": "~1.0",
         "holt59/cakephp3-bootstrap-helpers": "dev-master",
         "cakemanager/cakephp-utils": "dev-master",
-        "cakephp/plugin-installer": "^1.1"
+        "cakephp/plugin-installer": "^1.3"
     },
     "require-dev": {
+        "composer/composer": ">=1.10.22",
+        "roave/security-advisories": "dev-latest",
         "psy/psysh": "@stable",
         "cakephp/debug_kit": "~3.2",
         "cakephp/bake": "~1.1"
@@ -34,8 +36,7 @@
         }
     },
     "scripts": {
-        "post-install-cmd": "App\\Console\\Installer::postInstall",
-        "post-autoload-dump": "Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump"
+        "post-install-cmd": "App\\Console\\Installer::postInstall"
     },
     "minimum-stability": "stable",
     "prefer-stable": true
